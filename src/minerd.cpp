@@ -64,7 +64,7 @@ int main(int argc, char** argv)
     desc.add_options()
         ("help,h", "show the help message")
         ("infogpu,i", "show the info about GPU in your system")
-        ("url,u", po::value<std::string>(&url)->default_value("stratum+tcp://62.141.38.75:3333"), "The stratum pool url")
+        ("url,u", po::value<std::string>(&url), "The stratum pool url")
         ("reserveurl,r", po::value<std::vector<std::string>>(&all_pools_url)->multitoken(), "Reserved pools url")
         ("address,a", po::value<std::string>(&address), "The address to send mining rewards to.")
         ("gpu,g", po::value<std::vector<int>>(&gpu_devices)->multitoken(), "Index of GPU device to use in mining(can use multiple times). For more info check --infogpu")
@@ -111,7 +111,7 @@ int main(int argc, char** argv)
 
     int cores;
     cores = vm["cores"].as<int>();
-    cores = std::max(0, cores);
+	if (cores < 0) cores = 0;    
     auto utilization = determine_utilization(cores);
 
     std::unique_ptr<bitcash::Context, decltype(&bitcash::delete_context)> c{
