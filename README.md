@@ -15,7 +15,7 @@ Library that mines [BitCash](https://www.choosebitcash.com)
 See the commandline tool [bitcash-minerd](src/minerd.cpp) for an example of using the library.
 
 Example:
-bitcash-minerd.exe -a <payout address> -g<number of GPU to use -u "stratum url"
+bitcash-minerd.exe -a <payout address> -g<number of GPU to use> -u "stratum url"
 
 ## Compiling
 
