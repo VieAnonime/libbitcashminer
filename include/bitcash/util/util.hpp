@@ -158,13 +158,13 @@ namespace bitcash
         template<class C>
         void to_hex(const C& bin, std::string& res)
         {
-            boost::algorithm::hex_lower(bin.begin(), bin.end(), std::back_inserter(res));
+            boost::algorithm::hex(bin.begin(), bin.end(), std::back_inserter(res));
         }
 
         template<class I>
         void to_hex(const I& begin, const I& end, std::string& res)
         {
-            boost::algorithm::hex_lower(begin, end, std::back_inserter(res));
+            boost::algorithm::hex(begin, end, std::back_inserter(res));
         }
 
         void double_sha256(
