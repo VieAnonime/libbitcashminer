@@ -438,6 +438,8 @@ namespace bitcash
 
                 uint8_t edgebits = work->data[20] >> 24;
 
+                transform(hex_header_hash.begin(), hex_header_hash.end(), hex_header_hash.begin(), ::tolower); 
+
 #if CUDA_ENABLED
                 bool found = false;
                 if(!_gpu_device) {
